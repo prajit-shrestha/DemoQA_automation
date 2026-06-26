@@ -14,3 +14,8 @@ class BasePage:
     def wait_for_element(self,locator):
         return WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(locator))
+
+    def wait_for_alert(self):
+        WebDriverWait(self.driver, 10).until(
+            EC.alert_is_present()
+        )
