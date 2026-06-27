@@ -30,4 +30,4 @@ class FramePage(BasePage):
 
     # Get text inside frame
     def get_result_text(self):
-        return self.wait_for_element(self.RESULT_TEXT).text
+        return self.wait_for_element(self.RESULT_TEXT).text()
