@@ -14,8 +14,10 @@ class AlertFrameWindows(BasePage):
     NESTED_FRAMES = (By.XPATH, "//span[text()='Nested Frames']")
     MODAL_DIALOGS = (By.XPATH, "//span[text()='Modal Dialogs']")
 
+
     def click_alert_frame_window(self):
-        self.wait_for_clickable(self.alert_frame_windows).click()
+        element = self.scroll_to_element(self.alert_frame_windows)
+        element.click()
 
     def is_browser_visible(self):
         return self.wait_for_element(

@@ -19,3 +19,8 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(
             EC.alert_is_present()
         )
+
+    def scroll_to_element(self, locator):
+        element = self.wait_for_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        return element

@@ -9,7 +9,8 @@ class AlertPage(BasePage):
     ALERT_BUTTON = (By.ID, "alertButton")
     TIMER_ALERT_BUTTON = (By.ID,"timerAlertButton")
     CONFIRM_BUTTON = (By.ID,"confirmButton")
-    PROMPT_BUTTON = (By.ID,"promptButton")
+    PROMPT_BUTTON = (By.ID,"promtButton")
+    RESULT_TEXT = (By.ID, "promptResult")
 
     #NAVIGATION
     def click_alert_menu(self):
@@ -34,6 +35,15 @@ class AlertPage(BasePage):
 
     def accept_alert(self):
         self.driver.switch_to.alert.accept()
+
+    def close_alert(self):
+        self.driver.switch_to.alert.dismiss()
+
+    def send_text_to_alert(self,text):
+        self.driver.switch_to.alert.send_keys(text)
+
+    def get_result_text(self):
+        return self.wait_for_element(self.RESULT_TEXT).text
 
     def wait_for_timer_alert(self):
         self.wait_for_alert()
