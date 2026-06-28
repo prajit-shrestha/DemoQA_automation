@@ -24,3 +24,18 @@ class BasePage:
         element = self.wait_for_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
         return element
+
+    def remove_ads(self):
+        """Remove DemoQA advertisements."""
+        self.driver.execute_script("""
+               let fixedBan = document.getElementById('fixedban');
+               if (fixedBan) {
+                   fixedBan.remove();
+               }
+
+               document.querySelectorAll('iframe').forEach(frame => {
+                   try {
+                       frame.remove();
+                   } catch(e) {}
+               });
+           """)
