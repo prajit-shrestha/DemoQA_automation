@@ -21,8 +21,13 @@ class BasePage:
         )
 
     def scroll_to_element(self, locator):
-        element = self.wait_for_element(locator)
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        element = self.driver.find_element(*locator)
+
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            element
+        )
+
         return element
 
     def remove_ads(self):

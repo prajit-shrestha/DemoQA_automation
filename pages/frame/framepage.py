@@ -8,7 +8,7 @@ class FramePage(BasePage):
     FRAME_MENU_BUTTON = (By.XPATH, "//span[text()='Frames']")
     FRAME_1 = (By.ID, "frame1")
     FRAME_2 = (By.ID, "frame2")
-    RESULT_TEXT = (By.ID, "sampleHeading")
+    RESULT_TEXT = (By.ID,"sampleHeading")
 
     # Navigation
     def click_menu_frame(self):
@@ -30,4 +30,4 @@ class FramePage(BasePage):
 
     # Get text inside frame
     def get_result_text(self):
-        return self.wait_for_element(self.RESULT_TEXT).text()
+        return self.wait_for_element(self.RESULT_TEXT).text
