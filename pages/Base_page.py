@@ -24,7 +24,7 @@ class BasePage:
         element = self.driver.find_element(*locator)
 
         self.driver.execute_script(
-            "arguments[0].scrollIntoView({block: 'center'});",
+            "arguments[0].scrollIntoView({block: 'start'});",
             element
         )
 

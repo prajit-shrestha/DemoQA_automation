@@ -19,7 +19,15 @@ class Widget_Page(BasePage):
 
     # Click methods
     def open_widgets(self):
-        self.scroll_to_element(self.HOME_WIDGET).click()
+
+        element = self.wait_for_clickable(self.HOME_WIDGET)
+
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block:'center'});",
+            element
+        )
+
+        element.click()
 
 
     def open_widget_menu(self):
