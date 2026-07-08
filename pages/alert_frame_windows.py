@@ -2,6 +2,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from pages.Base_page import BasePage
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class AlertFrameWindows(BasePage):
@@ -14,9 +15,10 @@ class AlertFrameWindows(BasePage):
     NESTED_FRAMES = (By.XPATH, "//span[text()='Nested Frames']")
     MODAL_DIALOGS = (By.XPATH, "//span[text()='Modal Dialogs']")
 
-
     def click_alert_frame_window(self):
         element = self.scroll_to_element(self.alert_frame_windows)
+        self.wait_for_clickable(self.alert_frame_windows)
+
         element.click()
 
     def is_browser_visible(self):
